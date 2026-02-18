@@ -17,6 +17,13 @@ Observațiile văzute:
 
 -Acest decalaj confirmă traiectoria orbitală pe direcția Vest-Est, oferind o acoperire aproape simultană a întregii țări.
 
+<img width="340" height="173" alt="Screenshot 2026-02-18 220833" src="https://github.com/user-attachments/assets/1a90c3c3-f909-4920-bf0f-2358697c8a40" />
+
+
+<img width="675" height="283" alt="Screenshot 2026-02-18 215148" src="https://github.com/user-attachments/assets/3b15b491-4cf4-4a4b-9d93-f8808bceb5fa" />
+
+
+
 
 -Ambele stații beneficiază de o durată de contact de aproximativ 500-501 secunde (peste 8 minute):Timișoara: 500.50 s,	București: 501.57 s.
 
