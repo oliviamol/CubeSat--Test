@@ -31,6 +31,24 @@ Observațiile văzute:
 -O fereastră de 8 minute este considerată optimă pentru un CubeSat de orbită joasă (LEO), permițând descărcarea unor volume semnificative de date de telemetrie sau imagini de rezoluție medie.
 
 
+#De ce??
+ Avem nevoie de un mic calculc matematic:
+
+      - rata de transfer: presupunem o viteză de transmisie obișnuită pt un CubeSat de 2Mbps 
+
+      - timpul de contact: aprox. 500s 
+
+      - capacitate totală: 500s * 2Mbps = 1000 Mb , adică 1000/8 = 124 MB pe fiecare trecere (asta înseamnă că poți descărca vreo 40-50 de imagini multispectrale de înaltă rezoluție(aprox 2.5MB))
+
+
+      Satelitul este configurat pentru o misiune de Teledetecție (Remote Sensing). În fereastra de contact, acesta transmite două fluxuri principale de date:
+      
+
+-date de telemetrie: parametrii vitali de funcționare (stare baterii, temperaturi, orientare).
+
+
+-date de misiune: seturi de date multispectrale utilizate pentru monitorizarea mediului și agricultură de precizie.
+
 
 
 
