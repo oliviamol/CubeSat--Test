@@ -6,9 +6,17 @@ Am realizat designul unei misiuni pentru un CubeSat aflat pe o orbită de tip Su
 
 Observațiile văzute:
 -Satelitul intră în raza de vizibilitate a Timișoarei la ora 21:16:39.
+
+
 -După doar 22 de secunde (la ora 21:17:01), acesta devine vizibil și deasupra Bucureștiului.
+
+
 -Acest decalaj confirmă traiectoria orbitală pe direcția Vest-Est, oferind o acoperire aproape simultană a întregii țări.
+
+
 -Ambele stații beneficiază de o durată de contact de aproximativ 500-501 secunde (peste 8 minute):Timișoara: 500.50 s,	București: 501.57 s.
+
+
 -O fereastră de 8 minute este considerată optimă pentru un CubeSat de orbită joasă (LEO), permițând descărcarea unor volume semnificative de date de telemetrie sau imagini de rezoluție medie.
 
 
