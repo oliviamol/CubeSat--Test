@@ -2,7 +2,7 @@
  # Misiune CubeSat România (GMAT)
 Proiect de simulare a unei misiuni de observare a Pământului folosind NASA General Mission Analysis Tool.
 
-Am realizat designul unei misiuni pentru un CubeSat aflat pe o orbită de tip Sun-Synchronous (altitudine ~500km). Folosind instrumentul GMAT (NASA), am demonstrat că pentru o stație de sol amplasată în București (lat: 44.42° N, long: 26.10° E), fereastra medie de contact este de 8 minute și 21 de secunde. Acest timp este suficient pentru descărcarea datelor de telemetrie și a pachetelor de date de observare a Pământului, apoi am mai realizat designul unei misiuni pentru o stație de sol amplasată în Timișoara(long: 45.75° N, lat: 21.22° E).
+Am realizat designul unei misiuni pentru un CubeSat aflat pe o orbită de tip Sun-Synchronous (altitudine ~500km). Folosind instrumentul GMAT (NASA), am demonstrat că pentru o stație de sol amplasată în București (lat: 44.42° N, long: 26.10° E), fereastra medie de contact este de 8 minute și 21 de secunde. Acest timp este suficient pentru descărcarea datelor de telemetrie și a pachetelor de date de observare a Pământului, apoi am mai realizat designul unei misiuni pentru o stație de sol amplasată în Timișoara(lat: 45.75° N, long: 21.22° E).
 
 Observațiile văzute:
 -Satelitul intră în raza de vizibilitate a Timișoarei la ora 21:16:39.
@@ -38,7 +38,7 @@ De ce??
 
       - timpul de contact: aprox. 500s 
 
-      - capacitate totală: 500s * 2Mbps = 1000 Mb , adică 1000/8 = 124 MB pe fiecare trecere (asta înseamnă că poți descărca vreo 40-50 de imagini multispectrale de înaltă rezoluție(aprox 2.5MB))
+      - capacitate totală: 500s * 2Mbps = 1000 Mb , adică 1000/8 = 125 MB pe fiecare trecere (asta înseamnă că poți descărca vreo 40-50 de imagini multispectrale de înaltă rezoluție(aprox 2.5MB))
 
 
       Satelitul este configurat pentru o misiune de Teledetecție (Remote Sensing). În fereastra de contact, acesta transmite două fluxuri principale de date:
