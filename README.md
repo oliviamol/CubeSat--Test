@@ -6,9 +6,13 @@ Am realizat designul unei misiuni pentru un CubeSat aflat pe o orbită de tip Su
 
 Observațiile văzute:
 -Satelitul intră în raza de vizibilitate a Timișoarei la ora 21:16:39.
+<img width="1177" height="377" alt="Screenshot 2026-02-18 221052" src="https://github.com/user-attachments/assets/ea6883b7-350e-4c16-97c4-ccc0269e752d" />
+
 
 
 -După doar 22 de secunde (la ora 21:17:01), acesta devine vizibil și deasupra Bucureștiului.
+
+<img width="1562" height="582" alt="Screenshot 2026-02-18 220049" src="https://github.com/user-attachments/assets/edd3cf16-b872-4053-b5f3-cc29e8342b46" />
 
 
 -Acest decalaj confirmă traiectoria orbitală pe direcția Vest-Est, oferind o acoperire aproape simultană a întregii țări.
@@ -18,6 +22,8 @@ Observațiile văzute:
 
 
 -O fereastră de 8 minute este considerată optimă pentru un CubeSat de orbită joasă (LEO), permițând descărcarea unor volume semnificative de date de telemetrie sau imagini de rezoluție medie.
+
+
 
 
 
