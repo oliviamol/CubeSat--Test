@@ -1,0 +1,190 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2026-02-18 22:18:32
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DefaultSC;
+DefaultSC.DateFormat = UTCGregorian;
+DefaultSC.Epoch = '18 Feb 2026 21:00:00.000';
+DefaultSC.CoordinateSystem = EarthMJ2000Eq;
+DefaultSC.DisplayStateType = Keplerian;
+DefaultSC.SMA = 6871.000000000007;
+DefaultSC.ECC = 1.224820303518819e-16;
+DefaultSC.INC = 97.40000000000002;
+DefaultSC.RAAN = 300.61;
+DefaultSC.AOP = 0;
+DefaultSC.TA = 54.07830086804088;
+DefaultSC.DryMass = 850;
+DefaultSC.Cd = 2.2;
+DefaultSC.Cr = 1.8;
+DefaultSC.DragArea = 15;
+DefaultSC.SRPArea = 1;
+DefaultSC.SPADDragScaleFactor = 1;
+DefaultSC.SPADSRPScaleFactor = 1;
+DefaultSC.AtmosDensityScaleFactor = 1;
+DefaultSC.ExtendedMassPropertiesModel = 'None';
+DefaultSC.NAIFId = -10000001;
+DefaultSC.NAIFIdReferenceFrame = -9000001;
+DefaultSC.OrbitColor = Red;
+DefaultSC.TargetColor = Teal;
+DefaultSC.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+DefaultSC.CdSigma = 1e+70;
+DefaultSC.CrSigma = 1e+70;
+DefaultSC.Id = 'SatId';
+DefaultSC.Attitude = CoordinateSystemFixed;
+DefaultSC.SPADSRPInterpolationMethod = Bilinear;
+DefaultSC.SPADSRPScaleFactorSigma = 1e+70;
+DefaultSC.SPADDragInterpolationMethod = Bilinear;
+DefaultSC.SPADDragScaleFactorSigma = 1e+70;
+DefaultSC.AtmosDensityScaleFactorSigma = 1e+70;
+DefaultSC.ModelFile = 'aura.3ds';
+DefaultSC.ModelOffsetX = 0;
+DefaultSC.ModelOffsetY = 0;
+DefaultSC.ModelOffsetZ = 0;
+DefaultSC.ModelRotationX = 0;
+DefaultSC.ModelRotationY = 0;
+DefaultSC.ModelRotationZ = 0;
+DefaultSC.ModelScale = 1;
+DefaultSC.AttitudeDisplayStateType = 'Quaternion';
+DefaultSC.AttitudeRateDisplayStateType = 'AngularVelocity';
+DefaultSC.AttitudeCoordinateSystem = EarthMJ2000Eq;
+DefaultSC.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation Timisoara;
+Timisoara.OrbitColor = [204 228 180];
+Timisoara.TargetColor = DarkGray;
+Timisoara.CentralBody = Earth;
+Timisoara.StateType = Spherical;
+Timisoara.HorizonReference = Sphere;
+Timisoara.Location1 = 45.75;
+Timisoara.Location2 = 21.23;
+Timisoara.Location3 = 0.09;
+Timisoara.Id = 'StationId';
+Timisoara.IonosphereModel = 'None';
+Timisoara.TroposphereModel = 'None';
+Timisoara.DataSource = 'Constant';
+Timisoara.Temperature = 295.1;
+Timisoara.Pressure = 1013.5;
+Timisoara.Humidity = 55;
+Timisoara.MinimumElevationAngle = 7;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Earth;
+DefaultProp_ForceModel.PrimaryBodies = {Earth};
+DefaultProp_ForceModel.Drag = None;
+DefaultProp_ForceModel.SRP = Off;
+DefaultProp_ForceModel.RelativisticCorrection = Off;
+DefaultProp_ForceModel.ErrorControl = RSSStep;
+DefaultProp_ForceModel.GravityField.Earth.Degree = 4;
+DefaultProp_ForceModel.GravityField.Earth.Order = 4;
+DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = RungeKutta89;
+DefaultProp.InitialStepSize = 60;
+DefaultProp.Accuracy = 9.999999999999999e-12;
+DefaultProp.MinStep = 0.001;
+DefaultProp.MaxStep = 2700;
+DefaultProp.MaxStepAttempts = 50;
+DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- EventLocators
+%----------------------------------------
+
+Create ContactLocator ContactLocator1;
+ContactLocator1.Target = DefaultSC;
+ContactLocator1.Filename = 'ContactLocator1.txt';
+ContactLocator1.InputEpochFormat = 'TAIModJulian';
+ContactLocator1.InitialEpoch = '21545';
+ContactLocator1.StepSize = 10;
+ContactLocator1.FinalEpoch = '21545.138';
+ContactLocator1.UseLightTimeDelay = true;
+ContactLocator1.UseStellarAberration = true;
+ContactLocator1.WriteReport = true;
+ContactLocator1.RunMode = Automatic;
+ContactLocator1.UseEntireInterval = true;
+ContactLocator1.Observers = {Timisoara};
+ContactLocator1.LightTimeDirection = Transmit;
+ContactLocator1.LeftJustified = false;
+ContactLocator1.ReportPrecision = 6;
+ContactLocator1.ReportFormat = 'Legacy';
+ContactLocator1.IntervalStepSize = 0;
+ContactLocator1.ReportTimeFormat = 'UTCGregorian';
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView DefaultOrbitView;
+DefaultOrbitView.SolverIterations = Current;
+DefaultOrbitView.UpperLeft = [ 0 0 ];
+DefaultOrbitView.Size = [ 0.5 0.4498714652956298 ];
+DefaultOrbitView.RelativeZOrder = 725;
+DefaultOrbitView.Maximized = false;
+DefaultOrbitView.Add = {DefaultSC, Earth};
+DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
+DefaultOrbitView.DrawObject = [ true true ];
+DefaultOrbitView.DataCollectFrequency = 1;
+DefaultOrbitView.UpdatePlotFrequency = 50;
+DefaultOrbitView.NumPointsToRedraw = 0;
+DefaultOrbitView.ShowPlot = true;
+DefaultOrbitView.MaxPlotPoints = 20000;
+DefaultOrbitView.ShowLabels = true;
+DefaultOrbitView.ViewPointReference = Earth;
+DefaultOrbitView.ViewPointVector = [ 30000 0 0 ];
+DefaultOrbitView.ViewDirection = Earth;
+DefaultOrbitView.ViewScaleFactor = 1;
+DefaultOrbitView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+DefaultOrbitView.ViewUpAxis = Z;
+DefaultOrbitView.EclipticPlane = Off;
+DefaultOrbitView.XYPlane = On;
+DefaultOrbitView.WireFrame = Off;
+DefaultOrbitView.Axes = On;
+DefaultOrbitView.Grid = Off;
+DefaultOrbitView.SunLine = Off;
+DefaultOrbitView.UseInitialView = On;
+DefaultOrbitView.StarCount = 7000;
+DefaultOrbitView.EnableStars = On;
+DefaultOrbitView.EnableConstellations = On;
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+DefaultGroundTrackPlot.SolverIterations = Current;
+DefaultGroundTrackPlot.UpperLeft = [ 0 0.4395886889460154 ];
+DefaultGroundTrackPlot.Size = [ 0.5 0.4640102827763496 ];
+DefaultGroundTrackPlot.RelativeZOrder = 730;
+DefaultGroundTrackPlot.Maximized = false;
+DefaultGroundTrackPlot.Add = {DefaultSC};
+DefaultGroundTrackPlot.DataCollectFrequency = 1;
+DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+DefaultGroundTrackPlot.ShowPlot = true;
+DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+DefaultGroundTrackPlot.CentralBody = Earth;
+DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(DefaultSC) {DefaultSC.ElapsedSecs = 12000.0};

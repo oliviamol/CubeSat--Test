@@ -1,0 +1,10 @@
+Target: DefaultSC
+
+Observer: Timisoara
+Start Time (UTC)            Stop Time (UTC)               Duration (s)         
+18 Feb 2026 21:16:39.037    18 Feb 2026 21:24:59.546      500.50910879    
+
+
+Number of events : 1
+
+
