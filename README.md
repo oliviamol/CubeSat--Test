@@ -31,7 +31,7 @@ Observațiile văzute:
 -O fereastră de 8 minute este considerată optimă pentru un CubeSat de orbită joasă (LEO), permițând descărcarea unor volume semnificative de date de telemetrie sau imagini de rezoluție medie.
 
 
-#De ce??
+De ce??
  Avem nevoie de un mic calculc matematic:
 
       - rata de transfer: presupunem o viteză de transmisie obișnuită pt un CubeSat de 2Mbps 
